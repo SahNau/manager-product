@@ -4,26 +4,19 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BookTest {
+public class BookTest {
+
+    // проверка класса
     @Test
     public void shouldHaveAllFieldsAndMethodFromSuperClass() {
         Book book = new Book();
-//    book.
     }
 
+    // проверка хеша
     @Test
-    public void shouldCastFromBaseClass() {
-        Product product = new Book();
-        if (product instanceof Book) {
-            Book book = (Book) product;
-//      book.
-        }
-    }
-
-
-    @Test
-    public void shouldUseOverridedMethod() {
-        Product product = new Book();
-        product.toString();
+    public void shouldUseEquals() {
+        Book book1 = new Book(2, "Оно", 1000, "Кинг");
+        Book book2 = new Book(2, "Оно", 1000, "Кинг");
+        assertEquals(book1,book2);
     }
 }

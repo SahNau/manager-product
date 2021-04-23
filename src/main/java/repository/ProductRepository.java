@@ -2,6 +2,8 @@ package repository;
 
 import domain.Product;
 
+import java.util.Arrays;
+
 public class ProductRepository {
     private Product[] items = new Product[0];
 
@@ -14,19 +16,17 @@ public class ProductRepository {
         items = tmp;
     }
 
-    public Product[] findAll() {
-        return items;
-    }
-
-    public Product findById(int id) {
-        for (Product item : items) {
-            if (item.getId() == id) {
-                return item;
+    // выдать все объекты
+    public Product[] getAll() {
+        Product[] result = new Product[items.length];
+        for (int i = 0; i < result.length; i++) {
+            int index = items.length - i - 1;
+            result[i] = items[index];
             }
-        }
-        return null;
+        return result;
     }
 
+    // удалить по id
     public void removeById(int id) {
         int length = items.length - 1;
         Product[] tmp = new Product[length];
@@ -38,5 +38,18 @@ public class ProductRepository {
             }
         }
         items = tmp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductRepository that = (ProductRepository) o;
+        return Arrays.equals(items, that.items);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(items);
     }
 }

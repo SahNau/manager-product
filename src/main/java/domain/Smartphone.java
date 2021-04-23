@@ -35,11 +35,4 @@ public class Smartphone extends Product {
     public int hashCode() {
         return Objects.hash(super.hashCode(), manufacturer);
     }
-
-    @Override
-    public String toString() {
-        return "Smartphone{" +
-                "manufacturer='" +
-                '}';
-    }
 }

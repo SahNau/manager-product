@@ -29,19 +29,11 @@ public class Book extends Product {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Book book = (Book) o;
-        return author == book.author &&
-                Objects.equals(author, book.author);
+        return Objects.equals(author, book.author);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), author);
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "author='" + author + '\'' +
-                '}';
     }
 }
