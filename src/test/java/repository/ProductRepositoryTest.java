@@ -39,4 +39,11 @@ public class ProductRepositoryTest {
 
         assertArrayEquals(expected, actual);
     }
+
+
+    // Проверка удаляет несуществующий ID и не выдает ошибку NotFoundException
+    @Test
+    public void removeByIdNonExistent() {
+        assertThrows(Exception.class, ()->repository.removeById(6));
+    }
 }
